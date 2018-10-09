@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soapresource.learn.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soapresource.learn.com" xmlns:intf="http://soapresource.learn.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://soapresource.learn.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="test">
+    <complexType>
+     <sequence>
+      <element name="str" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testResponse">
+    <complexType>
+     <sequence>
+      <element name="testReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testPost">
+    <complexType>
+     <sequence>
+      <element name="str" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testPostResponse">
+    <complexType>
+     <sequence>
+      <element name="testPostReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testGet">
+    <complexType/>
+   </element>
+   <element name="testGetResponse">
+    <complexType>
+     <sequence>
+      <element name="testGetReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testPojoPost">
+    <complexType>
+     <sequence>
+      <element name="arg0" type="impl:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Employee">
+    <sequence>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="mobNo" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="testPojoPostResponse">
+    <complexType>
+     <sequence>
+      <element name="testPojoPostReturn" type="impl:Employee"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="testPostResponse">
+
+      <wsdl:part element="impl:testPostResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testResponse">
+
+      <wsdl:part element="impl:testResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testPostRequest">
+
+      <wsdl:part element="impl:testPost" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testPojoPostResponse">
+
+      <wsdl:part element="impl:testPojoPostResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testPojoPostRequest">
+
+      <wsdl:part element="impl:testPojoPost" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testGetRequest">
+
+      <wsdl:part element="impl:testGet" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testGetResponse">
+
+      <wsdl:part element="impl:testGetResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testRequest">
+
+      <wsdl:part element="impl:test" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="HelloServiceImpl">
+
+      <wsdl:operation name="test">
+
+         <wsdl:input message="impl:testRequest" name="testRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testResponse" name="testResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPost">
+
+         <wsdl:input message="impl:testPostRequest" name="testPostRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testPostResponse" name="testPostResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testGet">
+
+         <wsdl:input message="impl:testGetRequest" name="testGetRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testGetResponse" name="testGetResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPojoPost">
+
+         <wsdl:input message="impl:testPojoPostRequest" name="testPojoPostRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testPojoPostResponse" name="testPojoPostResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HelloServiceImplSoapBinding" type="impl:HelloServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="test">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPost">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testPostRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testPostResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testGet">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testGetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testGetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPojoPost">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testPojoPostRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testPojoPostResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HelloServiceImplService">
+
+      <wsdl:port binding="impl:HelloServiceImplSoapBinding" name="HelloServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/soapapi/services/HelloServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

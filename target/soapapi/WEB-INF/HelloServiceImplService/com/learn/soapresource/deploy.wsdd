@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from HelloServiceImplService WSDL service -->
+
+  <service name="HelloServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soapresource.learn.com"/>
+      <parameter name="wsdlServiceElement" value="HelloServiceImplService"/>
+      <parameter name="schemaQualified" value="http://soapresource.learn.com"/>
+      <parameter name="wsdlServicePort" value="HelloServiceImpl"/>
+      <parameter name="className" value="com.learn.soapresource.HelloServiceImpl"/>
+      <parameter name="wsdlPortType" value="HelloServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://soapresource.learn.com" xmlns:retNS="http://soapresource.learn.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="test" qname="operNS:test" returnQName="retNS:testReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://soapresource.learn.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:str" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://soapresource.learn.com" xmlns:retNS="http://soapresource.learn.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="testPost" qname="operNS:testPost" returnQName="retNS:testPostReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://soapresource.learn.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:str" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://soapresource.learn.com" xmlns:retNS="http://soapresource.learn.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="testGet" qname="operNS:testGet" returnQName="retNS:testGetReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://soapresource.learn.com" xmlns:retNS="http://soapresource.learn.com" xmlns:rtns="http://soapresource.learn.com" name="testPojoPost" qname="operNS:testPojoPost" returnQName="retNS:testPojoPostReturn" returnType="rtns:Employee" soapAction="">
+        <parameter xmlns:pns="http://soapresource.learn.com" xmlns:tns="http://soapresource.learn.com" qname="pns:arg0" type="tns:Employee"/>
+      </operation>
+      <parameter name="allowedMethods" value="testPost testGet test testPojoPost"/>
+
+      <typeMapping xmlns:ns="http://soapresource.learn.com" qname="ns:Employee" type="java:com.learn.soapresource.Employee" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

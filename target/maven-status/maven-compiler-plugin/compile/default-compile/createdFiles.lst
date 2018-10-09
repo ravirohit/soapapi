@@ -1,0 +1,10 @@
+com\learn\soapresource\HelloServiceImpl.class
+com\learn\soapresource\Employee.class
+com\learn\soapresource\jaxws\Test.class
+com\learn\soapresource\jaxws\TestPojoPostResponse.class
+com\learn\soapresource\jaxws\TestPost.class
+com\learn\soapresource\jaxws\TestResponse.class
+com\learn\soapresource\jaxws\TestPostResponse.class
+com\learn\soapresource\jaxws\TestGet.class
+com\learn\soapresource\jaxws\TestPojoPost.class
+com\learn\soapresource\jaxws\TestGetResponse.class
